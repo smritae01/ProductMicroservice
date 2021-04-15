@@ -3,7 +3,7 @@ module.exports = function(app) {
   var prod = require('../controllers/microController');
 
   // prod Routes
-  app.route('/products')
+  app.route('/rest/v1/products')
     .get(prod.list_all_tasks)
     // .post(prod.create_a_task);
 

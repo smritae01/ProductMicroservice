@@ -18,7 +18,7 @@ var ProductSchema = new Schema({
   availableQuantity: {
     type: Number
   }
-});
+}, {collection: 'product'});
 
 
-module.exports = mongoose.model('Products', ProductSchema);
+module.exports = mongoose.model('product', ProductSchema);

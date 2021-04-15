@@ -2,7 +2,7 @@
 
 
 var mongoose = require('mongoose'),
-  Product = mongoose.model('Products');
+  Product = mongoose.model('product');
 
   // const prod1 = new Product({
   //   productId: "12445dsd234",
@@ -20,8 +20,14 @@ var mongoose = require('mongoose'),
   //   availableQuantity: 7
   // });
 
+  // productId: "12900dsd234",
+  //   category: "Laptop",
+  //   productName: "DELL",
+  //   price: 120000,
+  //   availableQuantity: 4
+
 exports.list_all_tasks = function(req, res) {
-  Product.collection("products").find({}).toArray(function(err, task) {
+  Product.find({}, function(err, task) {
     if (err){
       res.send(err);
     }else{
