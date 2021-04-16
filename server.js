@@ -5,7 +5,6 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Cart = require("./api/models/cart"),
-  User = require("./api/models/user"),
   Product = require("./api/models/product"),
   bodyParser = require('body-parser');
 
