@@ -12,16 +12,16 @@
 
 - API Request:
   * HTTP Method: PUT
-  * Request URI: /rest/v1/users/<uuid>/cart
+  * Request URI: /rest/v1/users/:userid/cart
   * Body Parameter:
     {
     "productId": "12445dsd234",
-    "quantity": 2,
+    "quantity": 2
     }
 
 - API Request:
    * HTTP Method: GET
-   * Request URI: /rest/v1/users/<uuid>/cart
+   * Request URI: /rest/v1/users/:userid/cart
 - Response : CartItem JSON object
 
 #### UserIDs to be used : smrt123, raghu901, rahul087
