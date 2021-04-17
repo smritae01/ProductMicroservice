@@ -32,7 +32,7 @@
 
 `git clone https://github.com/smritae01/ProductMicroservice.git`
 
-- Run this to install all dependencies 
+- Run this to install all dependencies
 
 `npm install`
 
@@ -40,10 +40,11 @@
 
 `npm run start`
 
+#### You can test the routes using Postman.
+
 #### Technologies used:
 
 - nodejs
 - express
 - mongoDB (for storage) & mongoDB Atlas (for hosting)
 - mongoose
-

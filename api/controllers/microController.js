@@ -80,7 +80,7 @@ exports.update_cart = function(req, res) {
           prodarr = task.products.map(({productId})=>productId);
           prod_quant=prod_quant-new_quant;
           var prod_up = {availableQuantity: prod_quant}
-          if(prodarr[0]!=prod_id){
+      if(prodarr[0]!=prod_id){
             var to_push = {productId: prod_id,
                             productName: prod_name,
                             quantity: new_quant,
@@ -93,7 +93,13 @@ exports.update_cart = function(req, res) {
                  }
                });
 
-        Product.findOneAndUpdate({productId: prod_id}, prod_up);
+        Product.findOneAndUpdate({productId: prod_id}, prod_up, {new: true}, function(err, newprod){
+          if(err)
+            res.send(err);
+          // res.send("Products updated!");
+          console.log("Products updated!");
+        });
+
       }else{
 
         var newamt;
@@ -102,7 +108,12 @@ exports.update_cart = function(req, res) {
         // console.log(newamt, prod_price, new_quant);
         const update = {products:[{quantity: quantarr[0]+parseInt(new_quant),
                         amount: newamt}]};
-        Product.findOneAndUpdate({productId: prod_id}, prod_up);
+        Product.findOneAndUpdate({productId: prod_id}, prod_up, {new: true}, function(err, newprod){
+          if(err)
+            res.send(err);
+          // res.send("Products updated!");
+          console.log("Products updated!");
+        });
         Cart.findOneAndUpdate({userId: userId}, update, {new: true}, function(err, task1) {
           if (err)
             res.send(err);
