@@ -1,21 +1,21 @@
 //jshint esversion:6
-
+const dotenv = require("dotenv");
+dotenv.config();
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Cart = require("./api/models/cart"),
   Product = require("./api/models/product"),
-  dotenv = require("dotenv"),
   bodyParser = require('body-parser');
-  dotenv.config();
   mongoose.Promise = global.Promise;
-  const url = 'mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.38as3.mongodb.net/productsDB';
+
+  const url = 'mongodb+srv://'+process.env.DB_USERNAME+':'+process.env.DB_PASSWORD+'@cluster0.38as3.mongodb.net/productsDB';
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
   const db = mongoose.connection
   db.once('open', _ => {
-    console.log('Database connected:', url)
+    console.log('Database connected!')
   })
 
   db.on('error', err => {
