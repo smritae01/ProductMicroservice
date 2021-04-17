@@ -9,7 +9,7 @@ var express = require('express'),
   bodyParser = require('body-parser');
 
   mongoose.Promise = global.Promise;
-  const url = 'mongodb://127.0.0.1:27017/productsDB';
+  const url = 'mongodb+srv://admin-smriti:Test-123@cluster0.38as3.mongodb.net/productsDB';
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
   const db = mongoose.connection
@@ -33,4 +33,4 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('Products RESTful API server started on: ' + port);
+console.log('Products RESTful API server started on port: ' + port);
