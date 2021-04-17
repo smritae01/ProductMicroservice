@@ -6,10 +6,11 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Cart = require("./api/models/cart"),
   Product = require("./api/models/product"),
+  dotenv = require("dotenv"),
   bodyParser = require('body-parser');
-
+  dotenv.config();
   mongoose.Promise = global.Promise;
-  const url = 'mongodb+srv://admin-smriti:Test-123@cluster0.38as3.mongodb.net/productsDB';
+  const url = 'mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.38as3.mongodb.net/productsDB';
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
   const db = mongoose.connection
